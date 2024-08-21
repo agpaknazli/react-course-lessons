@@ -1,0 +1,16 @@
+.img{
+    width: 300px;
+    border: 2px solid green;
+    text-align: center;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: rgba(220, 20, 60, 0.156);
+   box-shadow: 1rem 2rem rgba(205, 189, 221, 0.66);
+
+}
+
+.par2{
+    background-color: aquamarine;
+    padding: 2rem;
+}
