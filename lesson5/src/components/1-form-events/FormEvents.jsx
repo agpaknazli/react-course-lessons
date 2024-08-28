@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 const FormEvents = () => {
+  const [name, setName] = useState("");
+  //? state her güncellendikten sonra component re-render olur ve değişen kısımlar DOM'a basılır.
   return (
     <div className="mt-4 p-3">
       <div className="text-center">
@@ -9,9 +11,15 @@ const FormEvents = () => {
       <form>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
-            Name
+            Name : {name}
           </label>
-          <input type="text" className="form-control" id="name" />
+          <input
+            //? onChange eventi input değeri her değiştiğinde tetiklenir. Biz de yazdığımız event handler aracılığı ile state'i güncelleyebiliriz.
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            className="form-control"
+            id="name"
+          />
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
@@ -35,13 +43,9 @@ const FormEvents = () => {
           </select>
         </div>
         <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
+          <input type="checkbox" className="form-check-input" id="remember" />
+          <label className="form-check-label" htmlFor="remember">
+            Remember me
           </label>
         </div>
         <button type="submit" className="btn btn-primary">
