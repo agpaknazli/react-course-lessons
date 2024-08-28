@@ -1,9 +1,9 @@
+import FormEvents from "./components/1-form-events/FormEvents";
 function App() {
   return (
     <div className="App">
-      <h1>Cohort 17</h1>
+      <FormEvents />
     </div>
   );
 }
-
 export default App;
