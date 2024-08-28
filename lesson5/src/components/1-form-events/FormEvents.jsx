@@ -3,6 +3,8 @@ const FormEvents = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("");
+  const [remember, setRemember] = useState(false);
+  const [date, setDate] = useState("");
   //? state her güncellendikten sonra component re-render olur ve değişen kısımlar DOM'a basılır.
   return (
     <div className="mt-4 p-3">
@@ -21,6 +23,8 @@ const FormEvents = () => {
             type="text"
             className="form-control"
             id="name"
+            //* required alanların çalışması için formları onSubmit ile göndermeliyiz. onClick ile gönderdiğimizde çalışmaz
+            required
           />
         </div>
         <div className="mb-3">
@@ -32,6 +36,17 @@ const FormEvents = () => {
             type="password"
             className="form-control"
             id="password"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="date" className="form-label">
+            Date: <span className="text-danger">{date}</span>
+          </label>
+          <input
+            onChange={(e) => setDate(e.target.value)}
+            type="datetime-local"
+            className="form-control"
+            id="date"
           />
         </div>
         <div className="mb-3">
@@ -51,11 +66,18 @@ const FormEvents = () => {
           </select>
         </div>
         <div className="mb-3 form-check">
-          <input type="checkbox" className="form-check-input" id="remember" />
+          <input
+            onChange={(e) => setRemember(e.target.checked)}
+            type="checkbox"
+            className="form-check-input"
+            id="remember"
+          />
           <label className="form-check-label" htmlFor="remember">
-            Remember me
+            Remember me:
+            <span className="text-danger">{remember.toString()}</span>
           </label>
         </div>
+        {/* //! form içerisindeki buttonların type'ı default olarak submittir */}
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
