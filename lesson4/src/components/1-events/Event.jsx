@@ -1,9 +1,8 @@
 const Event = () => {
-  <<<<<<< HEAD
-  =======
+
     //? local değişken
     let message = "Güle güle FS-17";
-  >>>>>>> ab95a3e4141653775d7e5b61ff95b07c1ef48d29
+
     //? Event handler fonksiyon tanımlaması
     const handleTıkla = (event) => {
       alert("tıklandı");
@@ -13,8 +12,7 @@ const Event = () => {
       console.log("name", event.target.name);
     };
   
-  <<<<<<< HEAD
-  =======
+
     function handleÇıkış(msg) {
       console.log(msg);
     }
@@ -30,7 +28,7 @@ const Event = () => {
     //? 1- Herhangi bir state degisirse
     //? 2- Props degisirse
     //? 3- Refresh force edilirse (tercih edilen bir durum olmaz)
-  >>>>>>> ab95a3e4141653775d7e5b61ff95b07c1ef48d29
+
     return (
       <div>
         <h2>Events</h2>
@@ -45,8 +43,8 @@ const Event = () => {
         <button onClick={() => alert("Silindi")} className="btn btn-danger">
           Sil
         </button>
-  <<<<<<< HEAD
-  =======
+ 
+
   
         {/* //* Eger bir event fonksiyonunun parametresi olmasi gerekiyorsa bu fonksiyon bir arrow fonks. tarafindan  cagrilmalidir. Aksi takdirde event fonksiyonu, event gerceklesmeden cagirilir */}
         <button onClick={() => handleÇıkış(message)} className="btn btn-success">
@@ -56,7 +54,7 @@ const Event = () => {
           Değiştir
         </button>
         <p>{message} </p>
-  >>>>>>> ab95a3e4141653775d7e5b61ff95b07c1ef48d29
+
       </div>
     );
   };
