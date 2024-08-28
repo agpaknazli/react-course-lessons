@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 const FormObject = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [country, setCountry] = useState("");
+  const [info, setInfo] = useState({ name: "", password: "", country: "" });
+  const handleInfo = (e) => setInfo({ ...info, [e.target.id]: e.target.value });
+  console.log(info);
   const sendToDatabase = (e) => {
     e.preventDefault(); //? submit eventi'nin doğal davranışını engelle
     alert(`
-    name: ${name}
-    password: ${password}
-    country: ${country}
+    name: ${info.name}
+    password: ${info.password}
+    country: ${info.country}
 `);
-    setName("");
-    setPassword("");
-    setCountry("");
+    setInfo({ name: "", password: "", country: "" });
   };
   return (
     <div className="mt-4 p-3">
@@ -23,40 +21,40 @@ const FormObject = () => {
       <form onSubmit={sendToDatabase}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
-            Name : <span className="text-danger">{name}</span>
+            Name : <span className="text-danger">{info.name}</span>
           </label>
           <input
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleInfo}
             type="text"
             className="form-control"
             id="name"
-            value={name}
+            value={info.name}
             required
           />
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
-            Password: <span className="text-danger">{password}</span>
+            Password: <span className="text-danger">{info.password}</span>
           </label>
           <input
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleInfo}
             type="password"
             className="form-control"
             id="password"
-            value={password}
+            value={info.password}
             required
           />
         </div>
         <div className="mb-3">
           <label htmlFor="country" className="form-label">
-            Country: <span className="text-danger">{country}</span>
+            Country: <span className="text-danger">{info.country}</span>
           </label>
           <select
             id="country"
             className="form-select"
             aria-label="Default select example"
-            onChange={(e) => setCountry(e.target.value)}
-            value={country}
+            onChange={handleInfo}
+            value={info.country}
             required
           >
             <option>COUNTRIES</option>
